@@ -89,8 +89,9 @@ const questions3 =[
         choices: ["Engineer","Intern","No,i have no more team member to add"]  
     },
 ];
+
 function startingPrompt() {
-    console.log( "/////////Welcome to Team Generator! /////////");
+    console.log( "/////////***** Welcome to Team Generator! *****/////////");
     addManager();  
 }
 
@@ -110,7 +111,7 @@ inquirer
             stopTeam();
             break;   
      };
-    })
+    });
  }
  
 function addEngineer(){
@@ -135,7 +136,7 @@ inquirer
            break; 
           
     };
-})
+});
  }
 
  function addIntern(){
@@ -160,7 +161,7 @@ inquirer
            stopTeam();
            break;   
     };
-})
+});
  }
 
  function stopTeam(){
