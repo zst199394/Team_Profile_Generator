@@ -28,7 +28,7 @@ const questions1 = [
         type: 'list',
         name: 'role',
         message: 'Which type of team member would u like to add?',
-        choices: ["Engineer","Intern"]  
+        choices: ["Engineer","Intern","No,i have no more team member to add"]  
     }, 
 ];
 const questions2 = [
@@ -53,6 +53,15 @@ const questions2 = [
         message: 'What is the engineer`s github username?',
     },
     {
+        type: 'list',
+        name: 'role',
+        message: 'Which type of team member would u like to add?',
+        choices: ["Engineer","Intern","No,i have no more team member to add"]  
+    }, 
+
+];
+const questions3 =[
+    {
         type: 'input',
         name: 'intern-name',
         message: 'What is the intern`s name?',
@@ -72,20 +81,80 @@ const questions2 = [
         name: 'school',
         message: 'What is the intern`s school?',
     },
+    {
+        type: 'list',
+        name: 'role',
+        message: 'Which type of team member would u like to add?',
+        choices: ["Engineer","Intern","No,i have no more team member to add"]  
+    },
 ];
+function startingPrompt() {
+    console.log( "/////////Welcome to Team Generator! /////////");
+    addManager();  
+}
+
+function addManager() {
 inquirer
- .prompt(questions1) 
+ .prompt(questions1)
+ .then((answers) =>{
+     switch(answers.role){
+         case "Engineer":
+             addEngineer();
+             break;
+
+         case "Intern":
+             addIntern();
+             break;
+        case "No,i have no more team member to add":
+            stopTeam();
+            break;   
+     };
+ },
  
+function addEngineer(){
+inquirer
  .prompt(questions2)
+ .then((answers) =>{
+    switch(answers.role){
+        case "Engineer":
+            addEngineer();
+            break;
+        case "Intern":
+            addIntern();
+            break;
+       case "No,i have no more team member to add":
+           stopTeam();
+           break;   
+    };
+ },
+
+ function addIntern(){
+ inquirer
  .prompt(questions3)
  .then((answers) =>{
+    switch(answers.role){
+        case "Engineer":
+            addEngineer();
+            break;
+
+        case "Intern":
+            addIntern();
+            break;
+       case "No,i have no more team member to add":
+           stopTeam();
+           break;   
+    };
+ },
+
+ function stopTeam(){
      fs.writeFile('team.html',generateTeam(answers),(err)=>
      err ? console.logg(err) : console.log('Successfully create ---team.html--- !')
      );
 
- });
+ })
 
-function init() {}
+// startingPrompt();
+// function init() {}
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
