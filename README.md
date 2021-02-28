@@ -7,7 +7,7 @@
   Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
   Because this application won’t be deployed, I’ll need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. Here's a link of the video gif :
   ![demo](./teamdemo.png)
-  ![page](./Develop/img/mypage.png)
+  ![page](./Develop/dist/img/mypage.png)
 
 
   ## Table of contents
