@@ -169,7 +169,7 @@ inquirer
  }
 
  function stopTeam(){
-     fs.writeFile('./output/team.html',generateTeam(answers),(err)=>
+     fs.writeFile('./dist/team.html',generateTeam(answers),(err)=>
      err ? console.logg(err) : console.log('Successfully create ---team.html--- !')
      );
 
