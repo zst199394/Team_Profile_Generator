@@ -2,7 +2,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateTeam = require('./generateTeam.js');
-// TODO: Create an array of questions for user input
+const Employee = require("./lib/employee")
+const Engineer = require("./lib/engineer")
+const Intern = require("./lib/intern")
+
+// Create an array for the team members !
 let teamArray = [];
 const questions1 = [
     {
@@ -165,7 +169,7 @@ inquirer
  }
 
  function stopTeam(){
-     fs.writeFile('team.html',generateTeam(answers),(err)=>
+     fs.writeFile('./output/team.html',generateTeam(answers),(err)=>
      err ? console.logg(err) : console.log('Successfully create ---team.html--- !')
      );
 
