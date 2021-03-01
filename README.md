@@ -8,7 +8,7 @@
   ```md 
   Because this application won’t be deployed, I’ll need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. Here's a link of the video gif :
   ```
-  ![demo](./Develop/dist/img/demo.png)
+  ![demo](./Develop/dist/img/demo.gif)
   ![page](./Develop/dist/img/mypage.png)
 
 
