@@ -22,31 +22,48 @@ htmlArray.push(htmlBeginning);
 for (let i=0; i<teamArray.length; i++){
     let object =`
     <div class="col-md-4 col-sm-4 col-xs-12">
+	`
+	if (teamArray[i].title === "Manager"){
+		object+=`
+			<div class="row section-success ourTeam-box text-center">
+				`
+	}
+	if (teamArray[i].title === "Engineer"){
+		object+=`
 			<div class="row section-info ourTeam-box text-center">
+				`
+	}
+	if (teamArray[i].title === "Intern"){
+		object+=`
+			<div class="row section-danger ourTeam-box text-center">
+				`
+	}
+	   object+=`
 				<div class="col-md-12 section1">
-					<img src="./meet02.png">
+					<img src="./img/${teamArray[i].title}01.png">
 				</div>
 				<div class="col-md-12 section2">
 					<p>${teamArray[i].name}</p><br>
-					<h1><img id="social_icons" src="./${teamArray[i].title}.png" alt="manager" width="22px" height="20px" >${teamArray[i].title}</h1><br>
+					<h1><img id="social_icons" src="./img/${teamArray[i].title}.png" alt="manager" width="22px" height="20px" >${teamArray[i].title}</h1><br>
 				</div>
 				<div class="col-md-12 section3">
 					<p>Office ID:${teamArray[i].id}<p>
-                    <p>Email :${teamArray[i].email}<p>
+                    <p>Email:${teamArray[i].email}<p>
     `
 	if (teamArray[i].phone){
         object+=`
-        <p>Office Phone: ${teamArray[i].phone}</a><p>
+        <p>Office Phone: ${teamArray[i].phone}</a></p>
         `
     }     
     if (teamArray[i].github){
         object+=`
-        <p>Github Username: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].github}</a><p>
+        <p>Github: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].github}</a></p>
         `
     }        
 	if (teamArray[i].school){
         object+=`
-        <p>School: ${teamArray[i].school}</p>
+        <p>Graduate School: ${teamArray[i].school}</p>
+
         `
     }
 
@@ -70,6 +87,8 @@ const htmlEnd =`
 </body>
 </html>`
 htmlArray.push(htmlEnd);
+let html = htmlArray.join("")
+return(html)
 };
 
     

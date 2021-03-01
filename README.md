@@ -5,8 +5,10 @@
   ## Description
   The project is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
   Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
+  ```md 
   Because this application won’t be deployed, I’ll need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. Here's a link of the video gif :
-  ![demo](./teamdemo.png)
+  ```
+  ![demo](./Develop/dist/img/demo.png)
   ![page](./Develop/dist/img/mypage.png)
 
 
