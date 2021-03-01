@@ -2,9 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateTeam = require('./generateTeam.js');
-const Employee = require("./lib/employee")
-const Engineer = require("./lib/engineer")
-const Intern = require("./lib/intern")
+const Employee = require("./lib/employee");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
+const Manager = require("./lib/Manager");
 
 // Create an array for the team members !
 let teamArray = [];
@@ -103,6 +104,12 @@ function addManager() {
 inquirer
  .prompt(questions1)
  .then((answers) =>{
+    const name = answers.manager
+    const id = answers.managerid
+    const email = answers.manageremail
+    const phone = answers.managerphone
+    const teamMember = new Manager(name, id, email, phone)
+    teamArray.push(teamMember)  
      switch(answers.role){
          case "Engineer":
              addEngineer();
@@ -112,7 +119,7 @@ inquirer
              addIntern();
              break;
         case "No,i have no more team member to add":
-            stopTeam();
+            stopTeam(teamArray);
             break;   
      };
     });
@@ -136,7 +143,7 @@ inquirer
             addIntern();
             break;
        case "No,i have no more team member to add":
-           stopTeam();
+           stopTeam(teamArray);
            break; 
           
     };
@@ -162,14 +169,14 @@ inquirer
             addIntern();
             break;
        case "No,i have no more team member to add":
-           stopTeam();
+           stopTeam(teamArray);
            break;   
     };
 });
  }
 
- function stopTeam(){
-     fs.writeFile('./dist/team.html',generateTeam(answers),(err)=>
+ function stopTeam(teamArray){
+     fs.writeFile('./dist/team.html',generateTeam(teamArray),(err)=>
      err ? console.logg(err) : console.log('Successfully create ---team.html--- !')
      );
 

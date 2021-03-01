@@ -1,4 +1,4 @@
-function generateTeam(answers) {
+function generateTeam(teamArray) {
 const htmlArray = []
 const htmlBeginning =`
 <!DOCTYPE html>
@@ -16,30 +16,7 @@ const htmlBeginning =`
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4 col-sm-4 col-xs-12">
-			<div class="row section-success ourTeam-box text-center">
-				<div class="col-md-12 section1">
-					<img src="./meet01.png">
-				</div>
-				<div class="col-md-12 section2">
-					<p>Name</p><br>
-					<h1><img id="social_icons" src="./manager.png" alt="manager" width="22px" height="20px" >MANAGER</h1><br>
-				</div>
-				<div class="col-md-12 section3">
-					<p>
-						Office ID:${answers.managerid}<br>
-                        Email :${answers.manageremail}<br>
-                        Office Phone:${answers.managerphone}
-					</p>
-				</div>
-				<div class="col-md-12 section4">
-					<i class="fa fa-facebook-official" aria-hidden="true"></i>
-					<i class="fa fa-twitter" aria-hidden="true"></i>
-					<i class="fa fa-google-plus" aria-hidden="true"></i>
-					<i class="fa fa-envelope" aria-hidden="true"></i>
-				</div>
-			</div>
-		</div>
+		
 `
 htmlArray.push(htmlBeginning);
 for (let i=0; i<teamArray.length; i++){
@@ -51,15 +28,20 @@ for (let i=0; i<teamArray.length; i++){
 				</div>
 				<div class="col-md-12 section2">
 					<p>${teamArray[i].name}</p><br>
-					<h1><img id="social_icons" src="./${teamArray[i].title}.png" alt="manager" width="22px" height="20px" >${finalTeamArray[i].title}</h1><br>
+					<h1><img id="social_icons" src="./${teamArray[i].title}.png" alt="manager" width="22px" height="20px" >${teamArray[i].title}</h1><br>
 				</div>
 				<div class="col-md-12 section3">
-					<p>Office ID:${fteamArray[i].id}<p>
+					<p>Office ID:${teamArray[i].id}<p>
                     <p>Email :${teamArray[i].email}<p>
     `
+	if (teamArray[i].phone){
+        object+=`
+        <p>Office Phone: ${teamArray[i].phone}</a><p>
+        `
+    }     
     if (teamArray[i].github){
         object+=`
-        <p>Github Username: <a href="https://github.com/${teamArray[i].github}">${fteamArray[i].github}</a><p>
+        <p>Github Username: <a href="https://github.com/${teamArray[i].github}">${teamArray[i].github}</a><p>
         `
     }        
 	if (teamArray[i].school){
